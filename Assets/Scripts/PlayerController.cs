@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody rb;
     private int count;
+    private bool isTen;
     private float movementX;
     private float movementY;
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+        isTen = false;
         
         SetCountText();
         winTextObject.SetActive(false);
@@ -35,7 +37,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 12)
+        if (count >= 10 && isTen)
         {
             winTextObject.SetActive(true);
         }
@@ -53,6 +55,12 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count += 1;
+            SetCountText();
+        }
+
+        if (other.gameObject.CompareTag("Portal") && count >=10)
+        {
+            isTen = true;
             SetCountText();
         }
     }
