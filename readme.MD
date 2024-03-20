@@ -10,11 +10,8 @@ A unity project
 ### Músicas e Efeitos Sonoros
 
 - [Interstellar](https://www.youtube.com/watch?v=0aHbyohe028)
-- [Rolling Ball Sound](https://pixabay.com/sound-effects/025442-rolling-wood-ball-field-recording-with-tascam-dr-70d-amp-rode-ntg4-79403/)
-- [Thunder, dry distant](https://pixabay.com/sound-effects/thunder-dry-distant-rolling-field-notl-2011-48804/)
-- [Colision](https://pixabay.com/sound-effects/doorhit-98828/)
-- [Victory](https://pixabay.com/sound-effects/space-take-off-5-172422/)
-- [Game Over](https://www.youtube.com/watch?v=yibNEcn-4yQ)
+- [Space Oddity](https://www.youtube.com/watch?v=Yp8_MvexNf8)
+- [Apollo Desaster](https://www.youtube.com/watch?v=yibNEcn-4yQ)
 
 ### Código base Timer
 
@@ -22,5 +19,4 @@ A unity project
 
 ### Código Base Sound FX
 
-- [Sound FX](https://www.youtube.com/watch?v=DU7cgVsU2rM)
 - [Background Music + Sound FX](https://www.youtube.com/watch?v=N8whM1GjH4w)
