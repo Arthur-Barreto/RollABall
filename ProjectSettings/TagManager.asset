@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUp
   - Portal
+  - Audio
   layers:
   - Default
   - TransparentFX

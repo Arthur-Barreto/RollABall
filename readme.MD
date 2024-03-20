@@ -14,8 +14,13 @@ A unity project
 - [Thunder, dry distant](https://pixabay.com/sound-effects/thunder-dry-distant-rolling-field-notl-2011-48804/)
 - [Colision](https://pixabay.com/sound-effects/doorhit-98828/)
 - [Victory](https://pixabay.com/sound-effects/space-take-off-5-172422/)
-- [Game Over](https://pixabay.com/sound-effects/game-over-arcade-6435/)
+- [Game Over](https://www.youtube.com/watch?v=yibNEcn-4yQ)
 
 ### Código base Timer
 
 - [Timer](https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/)
+
+### Código Base Sound FX
+
+- [Sound FX](https://www.youtube.com/watch?v=DU7cgVsU2rM)
+- [Background Music + Sound FX](https://www.youtube.com/watch?v=N8whM1GjH4w)

@@ -1,16 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
     public GameObject gameOverTextObject;
-    // timer variables
-    public float timeRemaining = 149;
-    public bool timerIsRunning;
+    
     public TextMeshProUGUI timeText;
     
     private Rigidbody _rb;
@@ -19,9 +18,14 @@ public class PlayerController : MonoBehaviour
     private float _movementX;
     private float _movementY;
     private bool _isGameOver;
+    private float _timeRemaining = 137;
+    private bool _timerIsRunning;
+    private float _speed = 10;
+
+    private AudioManager _audioManager;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _count = 0;
@@ -31,52 +35,50 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
         gameOverTextObject.SetActive(false);
 
-        timerIsRunning = true;
+        _timerIsRunning = true;
     }
 
-    void OnMove(InputValue movementValue)
+    private void Awake()
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    private void OnMove(InputValue movementValue)
+    {
+        var movementVector = movementValue.Get<Vector2>();
         _movementX = movementVector.x;
         _movementY = movementVector.y;
     }
 
-    void SetCountText()
+    private void SetCountText()
     {
-        countText.text = "Count: " + _count.ToString();
-        if (_count >= 10 && _isTen && !_isGameOver)
-        {
-            winTextObject.SetActive(true);
-            timerIsRunning = false;
-        }
+        countText.text = "Count: " + _count;
+        if (_count < 10 || !_isTen || _isGameOver) return;
+        Win();
     }
 
     private void Update()
     {
-        if (timerIsRunning)
+        if (!_timerIsRunning) return;
+        if (_timeRemaining > 0)
         {
-            if (timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
-            }
-            else
-            {
-                gameOverTextObject.SetActive(true);
-                timeRemaining = 0;
-                timerIsRunning = false;
-                _isGameOver = true;
-            }
+            _timeRemaining -= Time.deltaTime;
+            DisplayTime(_timeRemaining);
+        }
+        else
+        {
+            GameOver();
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(_movementX, 0.0f, _movementY);
-        _rb.AddForce(movement * speed);
+        var movement = new Vector3(_movementX, 0.0f, _movementY);
+        if (_isGameOver || (_isTen)) return;
+        _rb.AddForce(movement * _speed);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
         {
@@ -85,14 +87,12 @@ public class PlayerController : MonoBehaviour
             SetCountText();
         }
 
-        if (other.gameObject.CompareTag("Portal") && _count >=10)
-        {
-            _isTen = true;
-            SetCountText();
-        }
+        if (!other.gameObject.CompareTag("Portal") || _count < 10) return;
+        _isTen = true;
+        SetCountText();
     }
 
-    void DisplayTime(float timeToDisplay)
+    private void DisplayTime(float timeToDisplay)
     {
         timeToDisplay += 1;
 
@@ -100,5 +100,37 @@ public class PlayerController : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timeText.text = "T- " + $"{minutes:00}:{seconds:00}";
+    }
+
+    private void Win()
+    {
+        winTextObject.SetActive(true);
+        _timerIsRunning = false;
+        
+        PlayWinMusic();
+
+        _speed = 0;
+        
+    }
+
+    private void GameOver()
+    {
+        gameOverTextObject.SetActive(true);
+        _timeRemaining = 0;
+        _timerIsRunning = false;
+        _isGameOver = true;
+        
+        PlayGameOverMusic();
+    }
+
+    private void PlayWinMusic()
+    {
+        
+        _audioManager.PlaySfx(_audioManager.victory);
+    }
+
+    private void PlayGameOverMusic()
+    {
+        _audioManager.PlaySfx(_audioManager.gameOver);
     }
 }
