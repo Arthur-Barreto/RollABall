@@ -1,15 +1,12 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
-    public GameObject gameOverTextObject;
-    
+    public RestartScreen gameOverScreen;
+    public RestartScreen victoryScreen;
     public TextMeshProUGUI timeText;
     
     private Rigidbody _rb;
@@ -31,9 +28,10 @@ public class PlayerController : MonoBehaviour
         _count = 0;
         _isTen = false;
         
+        gameOverScreen.TurnOff();
+        victoryScreen.TurnOff();
+        
         SetCountText();
-        winTextObject.SetActive(false);
-        gameOverTextObject.SetActive(false);
 
         _timerIsRunning = true;
     }
@@ -104,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     private void Win()
     {
-        winTextObject.SetActive(true);
+        victoryScreen.Setup();
         _timerIsRunning = false;
         
         PlayWinMusic();
@@ -115,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
     private void GameOver()
     {
-        gameOverTextObject.SetActive(true);
+        gameOverScreen.Setup();
         _timeRemaining = 0;
         _timerIsRunning = false;
         _isGameOver = true;
