@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         var movementVector = movementValue.Get<Vector2>();
         _movementX = movementVector.x;
         _movementY = movementVector.y;
+        PlayRollingSfx();
     }
 
     private void SetCountText()
@@ -124,11 +125,16 @@ public class PlayerController : MonoBehaviour
     private void PlayWinMusic()
     {
         
-        _audioManager.PlaySfx(_audioManager.victory);
+        _audioManager.PlayMusic(_audioManager.victory);
     }
 
     private void PlayGameOverMusic()
     {
-        _audioManager.PlaySfx(_audioManager.gameOver);
+        _audioManager.PlayMusic(_audioManager.gameOver);
+    }
+
+    private void PlayRollingSfx()
+    {
+        _audioManager.PlaySfx(_audioManager.rollFx);
     }
 }

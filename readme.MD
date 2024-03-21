@@ -12,12 +12,14 @@ A unity project
 - [Interstellar](https://www.youtube.com/watch?v=0aHbyohe028)
 - [Space Oddity](https://www.youtube.com/watch?v=Yp8_MvexNf8)
 - [Apollo Desaster](https://www.youtube.com/watch?v=yibNEcn-4yQ)
+- [Thunder FX](https://pixabay.com/sound-effects/thunder-sound-45992/)
 
 ### Imagens
 
 - [Victory Windown](https://reason.com/2022/11/15/we-are-going-to-the-moon/)
 - [Game Over Window](https://www.thesun.co.uk/tech/26194374/worst-space-shuttle-disasters-crash-fire-columbia-challenger/)
 - [Menu Window](https://www.nasa.gov/wp-content/uploads/2022/07/lor_decision_8_apollo_11_launch_s69-39529.jpg)
+- [Teclado](https://beamedeighth.itch.io/simplekeys-animated-pixel-keyboard-keys)
 
 ### Código base Timer
 

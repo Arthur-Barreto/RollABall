@@ -8,8 +8,8 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Minigame");
     }
 
-    public void OnQuitButton()
+    public void OnInstrutionButton()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Instructions");
     }
 }

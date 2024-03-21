@@ -3745,6 +3745,7 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: c57fb5d9839d7e7d1ab4084f9eb995ed, type: 3}
   victory: {fileID: 8300000, guid: bf770050b0a7bf49f8b257359b7baa78, type: 3}
   gameOver: {fileID: 8300000, guid: 4c4d462fc13afc14eb2a4676ceb80a65, type: 3}
+  rollFx: {fileID: 8300000, guid: 8afbb98aec615a0d7a4d171eef407807, type: 3}
 --- !u!4 &932945518
 Transform:
   m_ObjectHideFlags: 0
@@ -7391,9 +7392,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8afbb98aec615a0d7a4d171eef407807, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

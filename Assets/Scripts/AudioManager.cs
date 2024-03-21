@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
     public AudioClip victory;
     public AudioClip gameOver;
+    public AudioClip rollFx;
     
     // Start is called before the first frame update
     private void Start()
@@ -15,9 +16,16 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = background;
         musicSource.Play();
     }
-    public void PlaySfx(AudioClip clip)
+
+    public void PlayMusic(AudioClip clip)
     {
         musicSource.Stop();
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
+    
+    public void PlaySfx(AudioClip clip)
+    {
         sfxSource.PlayOneShot(clip);
     }
 }
